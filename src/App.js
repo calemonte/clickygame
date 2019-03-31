@@ -17,47 +17,70 @@ class App extends Component {
       guessResult: []
     };
     this.handleClick = this.handleClick.bind(this);
+    this.shuffleImages = this.shuffleImages.bind(this);
+    this.handleIncorrectGuess = this.handleIncorrectGuess.bind(this);
+    this.handleCorrectGuess = this.handleCorrectGuess.bind(this);
+    this.checkTopScore = this.checkTopScore.bind(this);
   }
 
   handleClick(e) {
     const id = e.target.attributes.id.value;
-    console.log(this.state.guessResult);
 
     if (
       !this.state.guessResult.length ||
       !this.state.guessResult.includes(id)
     ) {
-      this.setState(state => {
-        const updatedList = state.guessResult.concat(id);
-        return {
-          guessResult: updatedList,
-          currentScore: state.currentScore + 1,
-          incorrect: false
-        };
-      });
+      this.handleCorrectGuess(id);
     } else if (this.state.guessResult.includes(id)) {
-      console.log("true");
-      this.setState({
-        guessResult: [],
-        currentScore: 0,
-        incorrect: true
-      });
+      this.handleIncorrectGuess();
     }
+    this.shuffleImages();
+  }
 
-    const newArr = this.shuffleImages(this.state.images);
+  handleCorrectGuess(id) {
+    this.setState(
+      {
+        guessResult: [...this.state.guessResult, id],
+        currentScore: this.state.currentScore + 1,
+        incorrect: false
+      },
+      this.checkTopScore
+    );
+  }
 
+  handleIncorrectGuess() {
     this.setState({
-      images: newArr
+      guessResult: [],
+      currentScore: 0,
+      incorrect: true
     });
   }
 
-  shuffleImages = a => {
+  checkTopScore() {
+    console.log(`Current: ${this.state.currentScore}`);
+    console.log(`Top: ${this.state.topScore}`);
+    if (this.state.currentScore > this.state.topScore) {
+      this.setState({
+        topScore: this.state.currentScore
+      });
+    }
+  }
+
+  shuffle = a => {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
   };
+
+  shuffleImages() {
+    const newArr = this.shuffle(this.state.images);
+
+    this.setState({
+      images: newArr
+    });
+  }
 
   render() {
     return (
@@ -68,7 +91,6 @@ class App extends Component {
           incorrect={this.state.incorrect}
         />
         <Wrapper>
-          {/* Loop over and render our Card components */}
           {this.state.images.map(image => (
             <Card
               src={image[1]}
