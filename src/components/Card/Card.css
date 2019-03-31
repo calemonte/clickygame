@@ -1,0 +1,16 @@
+.card {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+/* .card:active {
+
+} */
