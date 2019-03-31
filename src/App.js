@@ -2,33 +2,29 @@ import React, { Component } from "react";
 import Header from "./components/Header/Header";
 import Wrapper from "./components/Wrapper/Wrapper";
 import Card from "./components/Card/Card";
-import {
-  Img01,
-  Img02,
-  Img03,
-  Img04,
-  Img05,
-  Img06,
-  Img07,
-  Img08,
-  Img09,
-  Img10,
-  Img11,
-  Img12
-} from "./images/index";
+
+const imageFolder = require("./images/");
+const imageSrcArr = Object.entries(imageFolder);
 
 class App extends Component {
+  state = {
+    images: imageSrcArr,
+    topScore: 0,
+    currentScore: 0
+  };
+
   render() {
     return (
       <div>
-        <Header />
+        <Header
+          topScore={this.state.topScore}
+          currentScore={this.state.currentScore}
+        />
         <Wrapper>
-          <Card src={Img01} />
-          <Card src={Img02} />
-          <Card src={Img03} />
-          <Card src={Img04} />
-          <Card src={Img05} />
-          <Card src={Img06} />
+          {/* Loop over and render our Card components */}
+          {this.state.images.map(image => (
+            <Card src={image[1]} key={image[0]} />
+          ))}
         </Wrapper>
       </div>
     );
