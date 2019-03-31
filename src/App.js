@@ -7,10 +7,30 @@ const imageFolder = require("./images/");
 const imageSrcArr = Object.entries(imageFolder);
 
 class App extends Component {
-  state = {
-    images: imageSrcArr,
-    topScore: 0,
-    currentScore: 0
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: imageSrcArr,
+      topScore: 0,
+      currentScore: 0,
+      lastChosen: null
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const newArr = this.shuffleImages(this.state.images);
+    this.setState({
+      images: newArr
+    });
+  }
+
+  shuffleImages = a => {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   };
 
   render() {
@@ -23,7 +43,12 @@ class App extends Component {
         <Wrapper>
           {/* Loop over and render our Card components */}
           {this.state.images.map(image => (
-            <Card src={image[1]} key={image[0]} />
+            <Card
+              src={image[1]}
+              alt="Picture of a cute kitten"
+              key={image[0]}
+              onClick={this.handleClick}
+            />
           ))}
         </Wrapper>
       </div>
