@@ -1,7 +1,3 @@
-// module.exports = {};
-
-// const imageFolder = require("./images/");
-
 export { default as kitten1 } from "./kitten1.jpg";
 export { default as kitten2 } from "./kitten2.jpg";
 export { default as kitten3 } from "./kitten3.jpg";

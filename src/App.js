@@ -13,7 +13,7 @@ class App extends Component {
       images: imageSrcArr,
       topScore: 0,
       currentScore: 0,
-      incorrect: null,
+      correct: null,
       guessResult: []
     };
     this.handleClick = this.handleClick.bind(this);
@@ -42,7 +42,7 @@ class App extends Component {
       {
         guessResult: [...this.state.guessResult, id],
         currentScore: this.state.currentScore + 1,
-        incorrect: false
+        correct: true
       },
       this.checkTopScore
     );
@@ -52,13 +52,11 @@ class App extends Component {
     this.setState({
       guessResult: [],
       currentScore: 0,
-      incorrect: true
+      correct: false
     });
   }
 
   checkTopScore() {
-    console.log(`Current: ${this.state.currentScore}`);
-    console.log(`Top: ${this.state.topScore}`);
     if (this.state.currentScore > this.state.topScore) {
       this.setState({
         topScore: this.state.currentScore
@@ -88,7 +86,7 @@ class App extends Component {
         <Header
           topScore={this.state.topScore}
           currentScore={this.state.currentScore}
-          incorrect={this.state.incorrect}
+          correct={this.state.correct}
         />
         <Wrapper>
           {this.state.images.map(image => (
