@@ -13,13 +13,39 @@ class App extends Component {
       images: imageSrcArr,
       topScore: 0,
       currentScore: 0,
-      lastChosen: null
+      incorrect: null,
+      guessResult: []
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(e) {
+    const id = e.target.attributes.id.value;
+    console.log(this.state.guessResult);
+
+    if (
+      !this.state.guessResult.length ||
+      !this.state.guessResult.includes(id)
+    ) {
+      this.setState(state => {
+        const updatedList = state.guessResult.concat(id);
+        return {
+          guessResult: updatedList,
+          currentScore: state.currentScore + 1,
+          incorrect: false
+        };
+      });
+    } else if (this.state.guessResult.includes(id)) {
+      console.log("true");
+      this.setState({
+        guessResult: [],
+        currentScore: 0,
+        incorrect: true
+      });
+    }
+
     const newArr = this.shuffleImages(this.state.images);
+
     this.setState({
       images: newArr
     });
@@ -39,6 +65,7 @@ class App extends Component {
         <Header
           topScore={this.state.topScore}
           currentScore={this.state.currentScore}
+          incorrect={this.state.incorrect}
         />
         <Wrapper>
           {/* Loop over and render our Card components */}
@@ -47,6 +74,7 @@ class App extends Component {
               src={image[1]}
               alt="Picture of a cute kitten"
               key={image[0]}
+              id={image[0]}
               onClick={this.handleClick}
             />
           ))}
