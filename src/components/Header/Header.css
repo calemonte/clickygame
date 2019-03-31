@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+
+header {
+  background-color: #668aff;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  -webkit-box-shadow: 0px 1px 1px #282c34;
+  -moz-box-shadow: 0px 1px 1px #282c34;
+  box-shadow: 0px 1px 1px #282c34;
+}
+
+#brand {
+  font-family: "Pacifico", cursive;
+  font-size: 50px;
+}
+
+#scoreboard {
+  text-align: center;
+}
+
+@media screen and (max-width: 620px) {
+  header {
+    flex-direction: column;
+  }
+
+  #brand {
+      margin-bottom: 0px;
+  }
+}
