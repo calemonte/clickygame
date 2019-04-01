@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./components/Header/Header";
-import Wrapper from "./components/Wrapper/Wrapper";
+import Board from "./components/Board/Board";
 import Card from "./components/Card/Card";
 
 const imageFolder = require("./images/");
@@ -117,7 +117,7 @@ class App extends Component {
           correct={this.state.correct}
           wonGame={this.state.wonGame}
         />
-        <Wrapper>
+        <Board>
           {this.state.images.map(image => (
             <Card
               src={image[1]}
@@ -127,7 +127,7 @@ class App extends Component {
               onClick={this.handleClick}
             />
           ))}
-        </Wrapper>
+        </Board>
       </div>
     );
   }

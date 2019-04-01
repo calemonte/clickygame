@@ -1,6 +1,6 @@
 import React from "react";
-import "./Header.css";
 import Ticker from "../Ticker/Ticker";
+import "./Header.css";
 
 function Header(props) {
   const { currentScore, topScore, wonGame, correct } = props;
