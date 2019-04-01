@@ -14,27 +14,42 @@ class App extends Component {
       topScore: 0,
       currentScore: 0,
       correct: null,
-      guessResult: []
+      guessResult: [],
+      wonGame: false
     };
     this.handleClick = this.handleClick.bind(this);
     this.shuffleImages = this.shuffleImages.bind(this);
+    this.handleFirstGuess = this.handleFirstGuess.bind(this);
     this.handleIncorrectGuess = this.handleIncorrectGuess.bind(this);
     this.handleCorrectGuess = this.handleCorrectGuess.bind(this);
     this.checkTopScore = this.checkTopScore.bind(this);
+    this.checkForWin = this.checkForWin.bind(this);
   }
 
   handleClick(e) {
     const id = e.target.attributes.id.value;
 
-    if (
-      !this.state.guessResult.length ||
-      !this.state.guessResult.includes(id)
-    ) {
+    if (!this.state.guessResult.length) {
+      this.handleFirstGuess(id);
+    } else if (!this.state.guessResult.includes(id)) {
       this.handleCorrectGuess(id);
     } else if (this.state.guessResult.includes(id)) {
       this.handleIncorrectGuess();
     }
     this.shuffleImages();
+    
+  }
+
+  handleFirstGuess(id) {
+    this.setState(
+      {
+        guessResult: this.state.guessResult.concat(id),
+        currentScore: this.state.currentScore + 1,
+        correct: true,
+        wonGame: false
+      },
+      this.checkTopScore
+    );
   }
 
   handleCorrectGuess(id) {
@@ -44,7 +59,10 @@ class App extends Component {
         currentScore: this.state.currentScore + 1,
         correct: true
       },
-      this.checkTopScore
+      () => {
+        this.checkTopScore();
+        this.checkForWin();
+      }
     );
   }
 
@@ -54,6 +72,16 @@ class App extends Component {
       currentScore: 0,
       correct: false
     });
+  }
+
+  checkForWin() {
+    if (this.state.guessResult.length === this.state.images.length) {
+      this.setState({
+        guessResult: [],
+        currentScore: 0,
+        wonGame: true
+      });
+    }
   }
 
   checkTopScore() {
@@ -87,6 +115,7 @@ class App extends Component {
           topScore={this.state.topScore}
           currentScore={this.state.currentScore}
           correct={this.state.correct}
+          wonGame={this.state.wonGame}
         />
         <Wrapper>
           {this.state.images.map(image => (
