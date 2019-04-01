@@ -17,16 +17,9 @@ class App extends Component {
       guessResult: [],
       wonGame: false
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.shuffleImages = this.shuffleImages.bind(this);
-    this.handleFirstGuess = this.handleFirstGuess.bind(this);
-    this.handleIncorrectGuess = this.handleIncorrectGuess.bind(this);
-    this.handleCorrectGuess = this.handleCorrectGuess.bind(this);
-    this.checkTopScore = this.checkTopScore.bind(this);
-    this.checkForWin = this.checkForWin.bind(this);
   }
 
-  handleClick(e) {
+  handleClick = e => {
     const id = e.target.attributes.id.value;
 
     if (!this.state.guessResult.length) {
@@ -37,10 +30,9 @@ class App extends Component {
       this.handleIncorrectGuess();
     }
     this.shuffleImages();
-    
-  }
+  };
 
-  handleFirstGuess(id) {
+  handleFirstGuess = id => {
     this.setState(
       {
         guessResult: this.state.guessResult.concat(id),
@@ -50,9 +42,9 @@ class App extends Component {
       },
       this.checkTopScore
     );
-  }
+  };
 
-  handleCorrectGuess(id) {
+  handleCorrectGuess = id => {
     this.setState(
       {
         guessResult: [...this.state.guessResult, id],
@@ -64,17 +56,17 @@ class App extends Component {
         this.checkForWin();
       }
     );
-  }
+  };
 
-  handleIncorrectGuess() {
+  handleIncorrectGuess = () => {
     this.setState({
       guessResult: [],
       currentScore: 0,
       correct: false
     });
-  }
+  };
 
-  checkForWin() {
+  checkForWin = () => {
     if (this.state.guessResult.length === this.state.images.length) {
       this.setState({
         guessResult: [],
@@ -82,15 +74,15 @@ class App extends Component {
         wonGame: true
       });
     }
-  }
+  };
 
-  checkTopScore() {
+  checkTopScore = () => {
     if (this.state.currentScore > this.state.topScore) {
       this.setState({
         topScore: this.state.currentScore
       });
     }
-  }
+  };
 
   shuffle = a => {
     for (let i = a.length - 1; i > 0; i--) {
@@ -100,13 +92,13 @@ class App extends Component {
     return a;
   };
 
-  shuffleImages() {
+  shuffleImages = () => {
     const newArr = this.shuffle(this.state.images);
 
     this.setState({
       images: newArr
     });
-  }
+  };
 
   render() {
     return (
