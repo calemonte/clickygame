@@ -4,44 +4,33 @@ import Board from "./components/Board/Board";
 import Card from "./components/Card/Card";
 
 const imageFolder = require("./images/");
-const imageSrcArr = Object.entries(imageFolder);
+const images = Object.entries(imageFolder);
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: imageSrcArr,
+      images: images,
       topScore: 0,
       currentScore: 0,
-      correct: null,
       guessResult: [],
-      wonGame: false
+      ticker: ""
     };
   }
 
   handleClick = e => {
     const id = e.target.attributes.id.value;
 
-    if (!this.state.guessResult.length) {
-      this.handleFirstGuess(id);
-    } else if (!this.state.guessResult.includes(id)) {
+    if (
+      !this.state.guessResult.length ||
+      !this.state.guessResult.includes(id)
+    ) {
       this.handleCorrectGuess(id);
     } else if (this.state.guessResult.includes(id)) {
       this.handleIncorrectGuess();
     }
     this.shuffleImages();
-  };
-
-  handleFirstGuess = id => {
-    this.setState(
-      {
-        guessResult: this.state.guessResult.concat(id),
-        currentScore: this.state.currentScore + 1,
-        correct: true,
-        wonGame: false
-      },
-      this.checkTopScore
-    );
+    
   };
 
   handleCorrectGuess = id => {
@@ -49,7 +38,7 @@ class App extends Component {
       {
         guessResult: [...this.state.guessResult, id],
         currentScore: this.state.currentScore + 1,
-        correct: true
+        ticker: "Nice! You haven't guessed that kitty yet."
       },
       () => {
         this.checkTopScore();
@@ -62,7 +51,7 @@ class App extends Component {
     this.setState({
       guessResult: [],
       currentScore: 0,
-      correct: false
+      ticker: "Sorry! You already guessed that kitty. Try again!"
     });
   };
 
@@ -71,7 +60,7 @@ class App extends Component {
       this.setState({
         guessResult: [],
         currentScore: 0,
-        wonGame: true
+        ticker: "Purrrrfect! You win! Click any image to play again."
       });
     }
   };
@@ -106,8 +95,7 @@ class App extends Component {
         <Header
           topScore={this.state.topScore}
           currentScore={this.state.currentScore}
-          correct={this.state.correct}
-          wonGame={this.state.wonGame}
+          ticker={this.state.ticker}
         />
         <Board>
           {this.state.images.map(image => (

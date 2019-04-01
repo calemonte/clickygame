@@ -1,9 +1,8 @@
 import React from "react";
-import Ticker from "../Ticker/Ticker";
 import "./Header.css";
 
 function Header(props) {
-  const { currentScore, topScore, wonGame, correct } = props;
+  const { currentScore, topScore, ticker } = props;
 
   return (
     <header className="header">
@@ -13,10 +12,7 @@ function Header(props) {
           Current Score: {currentScore ? currentScore : 0} | Top Score:{" "}
           {topScore ? topScore : 0}
         </h4>
-        <Ticker correct={correct} />
-        {wonGame ? (
-          <h5>Purrrrfect! You win! Click any image to play again.</h5>
-        ) : null}
+        <h5>{ticker ? ticker : "Click any image to get started!"}</h5>
       </div>
     </header>
   );
