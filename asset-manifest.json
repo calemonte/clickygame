@@ -1,0 +1,20 @@
+{
+  "main.css": "/clickygame/static/css/main.3cd75816.chunk.css",
+  "main.js": "/clickygame/static/js/main.6b76f37d.chunk.js",
+  "main.js.map": "/clickygame/static/js/main.6b76f37d.chunk.js.map",
+  "runtime~main.js": "/clickygame/static/js/runtime~main.bb8261cb.js",
+  "runtime~main.js.map": "/clickygame/static/js/runtime~main.bb8261cb.js.map",
+  "static/js/2.97294558.chunk.js": "/clickygame/static/js/2.97294558.chunk.js",
+  "static/js/2.97294558.chunk.js.map": "/clickygame/static/js/2.97294558.chunk.js.map",
+  "index.html": "/clickygame/index.html",
+  "precache-manifest.58df9e087643533828fc8361a8662d81.js": "/clickygame/precache-manifest.58df9e087643533828fc8361a8662d81.js",
+  "service-worker.js": "/clickygame/service-worker.js",
+  "static/css/main.3cd75816.chunk.css.map": "/clickygame/static/css/main.3cd75816.chunk.css.map",
+  "static/media/kitten1.jpg": "/clickygame/static/media/kitten1.9514a8a3.jpg",
+  "static/media/kitten11.jpg": "/clickygame/static/media/kitten11.8ee30425.jpg",
+  "static/media/kitten12.jpg": "/clickygame/static/media/kitten12.e7f52c02.jpg",
+  "static/media/kitten3.jpg": "/clickygame/static/media/kitten3.b8bf39b1.jpg",
+  "static/media/kitten5.jpg": "/clickygame/static/media/kitten5.f3a3980e.jpg",
+  "static/media/kitten6.jpg": "/clickygame/static/media/kitten6.569cc209.jpg",
+  "static/media/kitten9.jpg": "/clickygame/static/media/kitten9.791df678.jpg"
+}
