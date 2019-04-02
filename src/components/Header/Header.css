@@ -1,8 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Homemade+Apple");
 
 header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  white-space: nowrap;
   background-color: #668aff;
-  min-height: 20vh;
+  max-height: 160px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -14,20 +18,27 @@ header {
 }
 
 #brand {
-  font-family: "Pacifico", cursive;
-  font-size: 50px;
+  font-family: "Homemade Apple", cursive;
+  font-size: 40px;
 }
 
 #scoreboard {
   text-align: center;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 768px) {
   header {
     flex-direction: column;
   }
 
   #brand {
-      margin-bottom: 0px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    font-size: 35px
+  }
+
+  #scoreboard > h4, h5 {
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
 }

@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import Header from "./components/Header/Header";
 import Board from "./components/Board/Board";
 import Card from "./components/Card/Card";
+// import pizza from "./images/index";
 
 const imageFolder = require("./images/");
 const images = Object.entries(imageFolder);
+
+// console.log(pizza);
 
 class App extends Component {
   constructor(props) {

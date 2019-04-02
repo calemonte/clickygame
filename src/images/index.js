@@ -10,3 +10,19 @@ export { default as kitten9 } from "./kitten9.jpg";
 export { default as kitten10 } from "./kitten10.jpg";
 export { default as kitten11 } from "./kitten11.jpg";
 export { default as kitten12 } from "./kitten12.jpg";
+
+// const images = [
+//   {
+//     id: 1,
+//     name: "Persian cat",
+//     src: require("../images/kitten1.jpg")
+//   },
+//   {
+//     id: 2,
+//     name: "Black cat",
+//     src: require("../images/kitten2.jpg")
+//   },
+
+// ];
+
+// export default images;
