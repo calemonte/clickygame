@@ -1,28 +1,64 @@
-export { default as kitten1 } from "./kitten1.jpg";
-export { default as kitten2 } from "./kitten2.jpg";
-export { default as kitten3 } from "./kitten3.jpg";
-export { default as kitten4 } from "./kitten4.jpg";
-export { default as kitten5 } from "./kitten5.jpg";
-export { default as kitten6 } from "./kitten6.jpg";
-export { default as kitten7 } from "./kitten7.jpg";
-export { default as kitten8 } from "./kitten8.jpg";
-export { default as kitten9 } from "./kitten9.jpg";
-export { default as kitten10 } from "./kitten10.jpg";
-export { default as kitten11 } from "./kitten11.jpg";
-export { default as kitten12 } from "./kitten12.jpg";
+const images = [
+  {
+    id: 1,
+    name: "Persian cat",
+    src: require("../images/kitten1.jpg")
+  },
+  {
+    id: 2,
+    name: "Black cat",
+    src: require("../images/kitten2.jpg")
+  },
+  {
+    id: 3,
+    name: "Kitten under a table.",
+    src: require("../images/kitten3.jpg")
+  },
+  {
+    id: 4,
+    name: "Black kitten",
+    src: require("../images/kitten4.jpg")
+  },
+  {
+    id: 5,
+    name: "Grey and white kitten on a deck.",
+    src: require("../images/kitten5.jpg")
+  },
+  {
+    id: 6,
+    name: "Orange cat lying on the ground.",
+    src: require("../images/kitten6.jpg")
+  },
+  {
+    id: 7,
+    name: "Orange and white cat staring at the camera.",
+    src: require("../images/kitten7.jpg")
+  },
+  {
+    id: 8,
+    name: "Cat curled up on the bed",
+    src: require("../images/kitten8.jpg")
+  },
+  {
+    id: 9,
+    name: "Grey kitten staring at the camera.",
+    src: require("../images/kitten9.jpg")
+  },
+  {
+    id: 10,
+    name: "Kitten resting on a bed.",
+    src: require("../images/kitten10.jpg")
+  },
+  {
+    id: 11,
+    name: "Grey and white kitten sitting on a bed.",
+    src: require("../images/kitten11.jpg")
+  },
+  {
+    id: 12,
+    name: "Kittens in a basket on the grass.",
+    src: require("../images/kitten12.jpg")
+  }
+];
 
-// const images = [
-//   {
-//     id: 1,
-//     name: "Persian cat",
-//     src: require("../images/kitten1.jpg")
-//   },
-//   {
-//     id: 2,
-//     name: "Black cat",
-//     src: require("../images/kitten2.jpg")
-//   },
-
-// ];
-
-// export default images;
+export default images;

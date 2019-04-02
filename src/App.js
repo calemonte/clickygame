@@ -2,12 +2,7 @@ import React, { Component } from "react";
 import Header from "./components/Header/Header";
 import Board from "./components/Board/Board";
 import Card from "./components/Card/Card";
-// import pizza from "./images/index";
-
-const imageFolder = require("./images/");
-const images = Object.entries(imageFolder);
-
-// console.log(pizza);
+import images from "./images/index";
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +28,6 @@ class App extends Component {
       this.handleIncorrectGuess();
     }
     this.shuffleImages();
-    
   };
 
   handleCorrectGuess = id => {
@@ -103,10 +97,10 @@ class App extends Component {
         <Board>
           {this.state.images.map(image => (
             <Card
-              src={image[1]}
-              alt="Picture of a cute kitten"
-              key={image[0]}
-              id={image[0]}
+              src={image.src}
+              alt={image.name}
+              key={image.id}
+              id={image.id}
               onClick={this.handleClick}
             />
           ))}
