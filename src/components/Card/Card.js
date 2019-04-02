@@ -9,7 +9,7 @@ function Card(props) {
       src={src}
       alt={alt}
       onClick={() => handleClick(id)}
-      {...props}
+      id={id}
     />
   );
 }

@@ -16,9 +16,7 @@ class App extends Component {
     };
   }
 
-  handleClick = e => {
-    const id = e.target.attributes.id.value;
-
+  handleClick = id => {
     if (
       !this.state.guessResult.length ||
       !this.state.guessResult.includes(id)
@@ -101,7 +99,7 @@ class App extends Component {
               alt={image.name}
               key={image.id}
               id={image.id}
-              onClick={this.handleClick}
+              handleClick={this.handleClick}
             />
           ))}
         </Board>
