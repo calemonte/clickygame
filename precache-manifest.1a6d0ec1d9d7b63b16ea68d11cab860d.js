@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "bcb8aaefcb9d1b49a0fc",
+    "revision": "02a567679159bfbcf313",
     "url": "/clickygame/static/css/main.3cd75816.chunk.css"
   },
   {
-    "revision": "bcb8aaefcb9d1b49a0fc",
-    "url": "/clickygame/static/js/main.1fd26b1e.chunk.js"
+    "revision": "02a567679159bfbcf313",
+    "url": "/clickygame/static/js/main.136e1449.chunk.js"
   },
   {
     "revision": "0f0146524616eea72d1b",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/clickygame/static/media/kitten12.e7f52c02.jpg"
   },
   {
-    "revision": "755bcc11284c7d37b7b2090097be6959",
+    "revision": "b9fdaeed74136391119b1321ab53d628",
     "url": "/clickygame/index.html"
   }
 ];
