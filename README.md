@@ -1,3 +1,5 @@
+ ![Screenshot of the "Kitty Klicker" logo](public/image/screen.png "Screenshot of the Kitty logo.")
+
 # Kitty Klicker
 
 "Kitty Klicker" is a simple memory game built with React (and cute kittens). To play, click on any image to get started, but make sure you remember which one it was -- clicking on the same image twice will knock your score down to 0!
