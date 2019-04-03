@@ -17,12 +17,9 @@ class App extends Component {
   }
 
   handleClick = id => {
-    if (
-      !this.state.guessResult.length ||
-      !this.state.guessResult.includes(id)
-    ) {
+    if (!this.state.guessResult.includes(id)) {
       this.handleCorrectGuess(id);
-    } else if (this.state.guessResult.includes(id)) {
+    } else {
       this.handleIncorrectGuess();
     }
     this.shuffleImages();
